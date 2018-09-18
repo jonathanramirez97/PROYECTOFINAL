@@ -20,3 +20,16 @@ public class DetalleCompra {
        PrecioCompra =0;
        leerConsola= new LeerConsola();
 	}
+
+	public DetalleCompra(int IdDetalleCompra, int IdCompra, int IdMueble, int Cantidad , int PrecioCompra  )
+   {
+       this.IdDetalleCompra=IdDetalleCompra;
+       this.IdCompra=IdCompra;
+       this.IdMueble=IdMueble;
+       this.Cantidad=Cantidad;
+       this.PrecioCompra =PrecioCompra ;
+   }
+
+	public DetalleCompra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+	{
+		leerConsola = new LeerConsola();
