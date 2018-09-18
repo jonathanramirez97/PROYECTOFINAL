@@ -77,3 +77,36 @@ public void mostrar()
         System.out.println ("\tIdEmpleado : " + this.IdEmpleado );
 	}
 }
+
+public void leerDatos()
+{
+	System.out.println ("Ingrese los datos de un Compra:");
+
+	
+
+	this.Fecha =leerConsola .LeerCadena("\tFecha: ", leerConsola.NoNulo);
+	this.MontoTotal  = leerConsola.LeerEnteros("\tIdCompra: ", 1, 100);
+	this.IdProveedor  = leerConsola.LeerEnteros("\tIdCompra: ", 1, 100);
+    this.IdEmpleado  = leerConsola.LeerEnteros("\tIdCompra: ", 1, 100);
+}
+
+
+public void setFecha(String Fecha)
+{
+	this.Fecha = Fecha;
+}
+
+public void setMontoTotal (int MontoTotal )
+{
+    this.MontoTotal =MontoTotal ;
+}
+
+public void setIdProveedor (int IdProveedor )
+{
+    this.IdProveedor =IdProveedor ;
+}
+
+public void setIdEmpleado (int IdEmpleado )
+{
+    this.IdEmpleado =IdEmpleado ;
+}
