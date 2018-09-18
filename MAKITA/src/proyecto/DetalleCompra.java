@@ -63,3 +63,33 @@ public class DetalleCompra {
 		operacionesSQL.cerrar();
 
 	}
+
+	public void mostrar()
+	{
+		if (this.IdDetalleCompra != 0)
+		{
+			System.out.println ("DetalleCompras:");
+			System.out.println ("\tIdDetalleCompra: " + this.IdDetalleCompra);
+			System.out.println ("\tIdCompra: " + this.IdCompra);
+			System.out.println ("\tIdMueble: " + this.IdMueble);
+			System.out.println ("\tCantidad: " + this.Cantidad);
+           System.out.println ("\tPrecioCompra : " + this.PrecioCompra );
+		}
+	}
+
+	public void leerDatos()
+	{
+		System.out.println ("Ingrese los datos de un DetalleCompra:");
+
+		
+		this.IdCompra =leerConsola.LeerEnteros("\tIdCompra: ", 1, 100);;
+		this.IdMueble = leerConsola.LeerEnteros("\tIdMueble: ", 1, 100);;
+		this.Cantidad = leerConsola.LeerEnteros("\tCantidad: ", 1, 100);;
+       this.PrecioCompra  = leerConsola.LeerEnteros("\tPrecioCompra: ", 1,100);;
+	}
+
+	
+	public void setIdCompra(int IdCompra)
+	{
+		this.IdCompra = IdCompra;
+	}
