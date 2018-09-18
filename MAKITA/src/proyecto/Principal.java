@@ -15,7 +15,7 @@ public class Principal {
 	   private void correr() throws ClassNotFoundException, SQLException
        {
 	
-	        OperacionesSQL mSQL = new OperacionesSQL( "localhost","makita", "root","1234");
+	       OperacionesSQL mSQL = new OperacionesSQL( "localhost","makita", "root","1234");
            mSQL.AbrirConexionBD();
 
            LeerConsola leerConsola= new LeerConsola();

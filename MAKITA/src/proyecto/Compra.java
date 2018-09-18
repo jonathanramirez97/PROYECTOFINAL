@@ -151,4 +151,3 @@ public void insertar(OperacionesSQL miSQL) throws SQLException
 }
 
 }
-
