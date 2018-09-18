@@ -42,3 +42,25 @@ public Compra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
 	query +=       "WHERE  IdCompra = " + codigo;
 
 	ResultSet rs = operacionesSQL.selectSQL(query);
+
+	if (rs.next())
+	{
+		this.IdCompra = rs.getInt(1);
+		this.Fecha = rs.getString(2);
+		this.MontoTotal  = rs.getInt(3);
+		this.IdProveedor  = rs.getInt(4);
+        this.IdEmpleado =rs.getInt(5);
+		
+	}
+	else
+	{
+		this.IdCompra = 0;
+		this.Fecha="";
+        this.MontoTotal =0;
+        this.IdProveedor =0;
+        this.IdEmpleado =0;
+	}
+
+	operacionesSQL.cerrar();
+
+}
