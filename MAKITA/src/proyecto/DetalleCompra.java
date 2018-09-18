@@ -93,3 +93,58 @@ public class DetalleCompra {
 	{
 		this.IdCompra = IdCompra;
 	}
+   
+   public void setIdMueble(int IdMueble)
+   {
+       this.IdMueble=IdMueble;
+   }
+   
+   public void setCantidad(int Cantidad)
+   {
+       this.Cantidad=Cantidad;
+   }
+
+   public void setPrecioCompra (int PrecioCompra )
+   {
+       this.PrecioCompra =PrecioCompra ;
+   }
+
+	public int getIdDetalleCompra()
+	{
+		return this.IdDetalleCompra;
+	}
+	
+	public int getIdCompra()
+	   {
+	       return this.IdCompra;
+	   }
+
+   public int getIdMueble()
+   {
+       return this.IdMueble;
+   }
+
+   public int getCantidad()
+   {
+       return this.Cantidad;
+   }
+
+   public int getPrecioCompra ()
+   {
+       return this.PrecioCompra ;
+   }
+  
+	public void insertar(OperacionesSQL miSQL) throws SQLException
+	{
+
+		String query = "INSERT INTO DetalleCompra ";
+		query +=       "SET    IdCompra = '" + this.getIdCompra() + "', ";
+		query +=       "       IdMueble = '" + this.getIdMueble() + "', ";
+		query +=       "       Cantidad = '" + this.getCantidad() + "', ";
+       query +=       "       PrecioCompra  = '" + this.getPrecioCompra ()+ "' ";
+
+		miSQL.InsertarNuevo(query);
+
+	}
+
+}
