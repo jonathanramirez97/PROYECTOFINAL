@@ -110,3 +110,31 @@ public void setIdEmpleado (int IdEmpleado )
 {
     this.IdEmpleado =IdEmpleado ;
 }
+
+public int getIdCompra()
+{
+	return this.IdCompra;
+}
+
+public String getFecha()
+{
+    return this.Fecha;
+}
+
+public int getMontoTotal ()
+{
+    return this.MontoTotal ;
+}
+
+public int getIdProveedor ()
+{
+    return this.IdProveedor ;
+}
+
+public int getIdEmpleado ()
+{
+    return this.IdEmpleado ;
+}
+
+public void insertar(OperacionesSQL miSQL) throws SQLException
+
