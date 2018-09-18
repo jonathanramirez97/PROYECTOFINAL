@@ -30,3 +30,15 @@ public Compra(int IdCompra, String Fecha, int MontoTotal , int IdProveedor  , in
     this.IdProveedor =IdProveedor ;
     this.IdEmpleado =IdEmpleado ;
 }
+
+public Compra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+{
+	leerConsola = new LeerConsola();
+
+	//miSQL.abrir();
+
+	String query = "SELECT *  ";
+	query +=       "FROM   Compras ";
+	query +=       "WHERE  IdCompra = " + codigo;
+
+	ResultSet rs = operacionesSQL.selectSQL(query);
