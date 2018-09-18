@@ -64,3 +64,16 @@ public Compra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
 	operacionesSQL.cerrar();
 
 }
+
+public void mostrar()
+{
+	if (this.IdCompra != 0)
+	{
+		System.out.println ("Compras:");
+		System.out.println ("\tIdCompra: " + this.IdCompra);
+		System.out.println ("\tFecha: " + this.Fecha);
+		System.out.println ("\tMontoTotal : " + this.MontoTotal );
+		System.out.println ("\tIdProveedor : " + this.IdProveedor );
+        System.out.println ("\tIdEmpleado : " + this.IdEmpleado );
+	}
+}
