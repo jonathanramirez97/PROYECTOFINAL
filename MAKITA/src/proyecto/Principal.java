@@ -157,3 +157,32 @@ public class Principal {
                        System.out.println ("Se produció un error, al registrar venta!");
                    }
                    break;
+               case 12:
+                       try
+                   {
+                       Venta venta= new Venta();
+                          DetalleVenta detalleVenta= new DetalleVenta();
+                          venta.mostrar();
+                          detalleVenta.mostrar();
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, al mostrar las ventas!");
+                   }
+                   break;
+               case 13:
+                        try
+                   {
+                       Compra compra= new Compra();
+                       DetalleCompra detalleCompra= new DetalleCompra();
+                       compra.mostrar();
+                          detalleCompra.mostrar();
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, al mostrar la compra!");
+                   }
+                   break;
+           }
+	
+       }
