@@ -186,3 +186,24 @@ public class Principal {
            }
 	
        }
+
+       private void MostrarOpciones()
+       {
+           System.out.println ("Ingrese su opción:");
+		    System.out.println ("\t1.Mostrar tipo de muebles ");
+	    	System.out.println ("\t2.Mostrar los Muebles " );
+	    	System.out.println ("\t3.Mostrar los Proveedores: ");
+	    	System.out.println ("\t4.Mostrar los Empleados " );
+           System.out.println ("\t5.Mostrar los Clientes " );
+           System.out.println ("\t6.Registrar Empleado " );
+           System.out.println ("\t7.Registrar Proveedor" );
+           System.out.println ("\t8.Registrar Mueble " );
+           System.out.println ("\t9.Registrar Cliente " );
+           System.out.println ("\t10.Registrar Compra " );
+           System.out.println ("\t11.Registrar Venta " );
+           System.out.println ("\t12.Mostrar Compra " );
+           System.out.println ("\t13.Mostrar Venta " );
+       }
+
+
+}
