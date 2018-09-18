@@ -21,3 +21,12 @@ public Compra()
     IdEmpleado =0;
     leerConsola= new LeerConsola();
 }
+
+public Compra(int IdCompra, String Fecha, int MontoTotal , int IdProveedor  , int IdEmpleado  )
+{
+    this.IdCompra=IdCompra;
+    this.Fecha=Fecha;
+    this.MontoTotal =MontoTotal ;
+    this.IdProveedor =IdProveedor ;
+    this.IdEmpleado =IdEmpleado ;
+}
