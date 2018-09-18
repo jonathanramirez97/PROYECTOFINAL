@@ -103,3 +103,57 @@ public class Principal {
                        System.out.println ("Se produció un error, al registrar Proveedor!");
                    }
                    break;
+               case 8:
+                      try
+                   {
+                       Mueble mueble= new Mueble();
+                          mueble.leerDatos();
+                          mueble.insertar(mSQL);
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, al registrar Mueble!");
+                   }
+                   break;
+               case 9:
+                      try
+                   {
+                     Cliente cliente= new Cliente();
+                          cliente.leerDatos();
+                          cliente.insertar(mSQL);
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, al registrar Cliente!");
+                   }
+                   break;
+               case 10:
+                      try
+                   {
+                       Compra compra= new Compra();
+                       DetalleCompra detalleCompra= new DetalleCompra();
+                       compra.leerDatos();
+                          compra.insertar(mSQL);
+                          detalleCompra.leerDatos();
+                          detalleCompra.insertar(mSQL);
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, al registrar la compra!");
+                   }
+                   break;
+               case 11:
+                      try
+                   {
+                       Venta venta= new Venta();
+                          DetalleVenta detalleVenta= new DetalleVenta();
+                          venta.leerDatos();
+                          venta.insertar(mSQL);
+                          detalleVenta.leerDatos();
+                          detalleVenta.insertar(mSQL);
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, al registrar venta!");
+                   }
+                   break;
