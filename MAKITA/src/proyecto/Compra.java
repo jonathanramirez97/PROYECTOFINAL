@@ -137,4 +137,18 @@ public int getIdEmpleado ()
 }
 
 public void insertar(OperacionesSQL miSQL) throws SQLException
+{
+
+
+	String query = "INSERT INTO Compras ";
+	query +=       "SET    Fecha = '" + this.getFecha() + "', ";
+	query +=       "       MontoTotal  = '" + this.getMontoTotal () + "', ";
+	query +=       "       IdProveedor  = '" + this.getIdProveedor () + "', ";
+    query +=       "       IdEmpleado  = '" + this.getIdEmpleado ()+ "' ";
+
+	miSQL.InsertarNuevo(query);
+
+}
+
+}
 
