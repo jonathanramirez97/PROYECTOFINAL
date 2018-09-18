@@ -41,3 +41,25 @@ public class DetalleCompra {
 		query +=       "WHERE  IdDetalleCompra = " + codigo;
 
 		ResultSet rs = operacionesSQL.selectSQL(query);
+
+		if (rs.next())
+		{
+			this.IdDetalleCompra = rs.getInt(1);
+			this.IdCompra = rs.getInt(2);
+			this.IdMueble = rs.getInt(3);
+			this.Cantidad = rs.getInt(4);
+           this.PrecioCompra =rs.getInt(5);
+			
+		}
+		else
+		{
+			this.IdDetalleCompra = 0;
+			this.IdCompra=0;
+           this.IdMueble=0;
+           this.Cantidad=0;
+           this.PrecioCompra =0;
+		}
+
+		operacionesSQL.cerrar();
+
+	}
