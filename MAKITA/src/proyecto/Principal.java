@@ -57,3 +57,49 @@ public class Principal {
                        System.out.println ("Se produció un error, no existen datos registrados");
                    }
                    break;
+               case 4:
+                     try
+                   {
+                      Empleado empleado= new Empleado();
+                         empleado.mostrar();
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, no existen datos registrados");
+                   }
+                   break;
+               case 5:
+                     try
+                   {
+                       Cliente cliente= new Cliente();
+                       cliente.mostrar();
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, no existen datos registrados");
+                   }
+                   break;
+               case 6:
+                     try
+                   {
+                       Empleado empleado= new Empleado();
+                         empleado.leerDatos();
+                         empleado.insertar(mSQL);
+                   }
+                   catch (Exception e)
+                   {
+                       System.out.println ("Se produció un error, al registrar Empleado!");
+                   }
+                   break;
+               case 7:
+                      try
+                   {
+                       Proveedor proveedor= new Proveedor();
+                          proveedor.leerDatos();
+                          proveedor.insertar(mSQL);
+                   }
+                   catch(Exception e) 
+                   {
+                       System.out.println ("Se produció un error, al registrar Proveedor!");
+                   }
+                   break;
