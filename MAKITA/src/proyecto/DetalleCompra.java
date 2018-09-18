@@ -33,3 +33,11 @@ public class DetalleCompra {
 	public DetalleCompra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
 	{
 		leerConsola = new LeerConsola();
+
+		
+
+		String query = "SELECT *  ";
+		query +=       "FROM   DetalleCompra ";
+		query +=       "WHERE  IdDetalleCompra = " + codigo;
+
+		ResultSet rs = operacionesSQL.selectSQL(query);
