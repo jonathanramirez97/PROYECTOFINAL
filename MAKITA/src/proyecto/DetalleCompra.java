@@ -30,7 +30,7 @@ public class DetalleCompra {
        this.PrecioCompra =PrecioCompra ;
    }
 
-	public DetalleCompra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+	public DetalleCompra( OperacionesSQL operacionesSQL) throws SQLException
 	{
 		leerConsola = new LeerConsola();
 
@@ -38,20 +38,21 @@ public class DetalleCompra {
 
 		String query = "SELECT *  ";
 		query +=       "FROM   DetalleCompra ";
-		query +=       "WHERE  IdDetalleCompra = " + codigo;
 
 		ResultSet rs = operacionesSQL.selectSQL(query);
-
-		if (rs.next())
+		try
+		{
+		while (rs.next())
 		{
 			this.IdDetalleCompra = rs.getInt(1);
 			this.IdCompra = rs.getInt(2);
 			this.IdMueble = rs.getInt(3);
 			this.Cantidad = rs.getInt(4);
            this.PrecioCompra =rs.getInt(5);
-			
+			mostrar();
 		}
-		else
+		}
+		catch(Exception e)
 		{
 			this.IdDetalleCompra = 0;
 			this.IdCompra=0;

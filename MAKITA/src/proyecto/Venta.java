@@ -30,26 +30,28 @@ public class Venta {
      this.IdEmpleado =IdEmpleado ;
  }
 
-	public Venta(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+	public Venta( OperacionesSQL operacionesSQL) throws SQLException
 	{
 		leerConsola = new LeerConsola();
 
 		String  query = "SELECT *  ";
 		query +=       "FROM   Ventas ";
-		query +=       "WHERE  IdVenta = " + codigo;
 
 		ResultSet rs = operacionesSQL.selectSQL(query);
 
-		if (rs.next())
+		try
+		{
+		while (rs.next())
 		{
 			this.IdVenta = rs.getInt(1);
 			this.Fecha = rs.getString(2);
 			this.MontoTotal  = rs.getInt(3);
 			this.IdCliente  = rs.getInt(4);
          this.IdEmpleado =rs.getInt(5);
-			
+			mostrar();
 		}
-		else
+		}
+		catch (Exception e)
 		{
 			this.IdVenta = 0;
 			this.Fecha="";
@@ -82,9 +84,9 @@ public class Venta {
 		
 
 		this.Fecha =leerConsola .LeerCadena("\tFecha: ", leerConsola.NoNulo);
-		this.MontoTotal  = leerConsola.LeerEnteros("\tIdVenta: ", 1, 100);
-		this.IdCliente  = leerConsola.LeerEnteros("\tIdVenta: ", 1, 100);
-     this.IdEmpleado  = leerConsola.LeerEnteros("\tIdVenta: ", 1, 100);
+		this.MontoTotal  = leerConsola.LeerEnteros("\tMontoTotal: ", 1, 100);
+		this.IdCliente  = leerConsola.LeerEnteros("\tIdCliente: ", 1, 100);
+     this.IdEmpleado  = leerConsola.LeerEnteros("\tIdEmpleado: ", 1, 100);
 	}
 
 	

@@ -27,27 +27,30 @@ public Cliente(int IdCliente, String Nombre, String Apellido, String Celular  )
     this.Celular=Celular;
 }
 
-public Cliente(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+public Cliente( OperacionesSQL operacionesSQL) throws SQLException
 {
 	leerConsola = new LeerConsola();
 
-	//miSQL.abrir();
+	
 
 	String query = "SELECT *  ";
 	query +=       "FROM   Clientes ";
-	query +=       "WHERE  IdCliente = " + codigo;
 
 	ResultSet rs = operacionesSQL.selectSQL(query);
 
-	if (rs.next())
+     
+	try
+	{
+	while (rs.next())
 	{
 		this.IdCliente = rs.getInt(1);
 		this.Nombre = rs.getString(2);
 		this.Apellido = rs.getString(3);
 		this.Celular = rs.getString(4);
-		
+		mostrar();
 	}
-	else
+	}
+	catch(Exception e)
 	{
 		this.IdCliente = 0;
 		this.Nombre="";

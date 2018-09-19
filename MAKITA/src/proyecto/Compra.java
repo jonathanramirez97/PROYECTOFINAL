@@ -31,7 +31,7 @@ public Compra(int IdCompra, String Fecha, int MontoTotal , int IdProveedor  , in
     this.IdEmpleado =IdEmpleado ;
 }
 
-public Compra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+public Compra( OperacionesSQL operacionesSQL) throws SQLException
 {
 	leerConsola = new LeerConsola();
 
@@ -39,20 +39,22 @@ public Compra(int codigo, OperacionesSQL operacionesSQL) throws SQLException
 
 	String query = "SELECT *  ";
 	query +=       "FROM   Compras ";
-	query +=       "WHERE  IdCompra = " + codigo;
 
 	ResultSet rs = operacionesSQL.selectSQL(query);
 
-	if (rs.next())
+	try
+	{
+	while (rs.next())
 	{
 		this.IdCompra = rs.getInt(1);
 		this.Fecha = rs.getString(2);
 		this.MontoTotal  = rs.getInt(3);
 		this.IdProveedor  = rs.getInt(4);
         this.IdEmpleado =rs.getInt(5);
-		
+		mostrar();
 	}
-	else
+	}
+	catch(Exception e)
 	{
 		this.IdCompra = 0;
 		this.Fecha="";
@@ -85,9 +87,9 @@ public void leerDatos()
 	
 
 	this.Fecha =leerConsola .LeerCadena("\tFecha: ", leerConsola.NoNulo);
-	this.MontoTotal  = leerConsola.LeerEnteros("\tIdCompra: ", 1, 100);
-	this.IdProveedor  = leerConsola.LeerEnteros("\tIdCompra: ", 1, 100);
-    this.IdEmpleado  = leerConsola.LeerEnteros("\tIdCompra: ", 1, 100);
+	this.MontoTotal  = leerConsola.LeerEnteros("\tMontoTotal: ", 1, 100);
+	this.IdProveedor  = leerConsola.LeerEnteros("\tIdProveedor: ", 1, 100);
+    this.IdEmpleado  = leerConsola.LeerEnteros("\tIdEmpleado: ", 1, 100);
 }
 
 

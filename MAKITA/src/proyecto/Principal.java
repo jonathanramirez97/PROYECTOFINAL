@@ -14,8 +14,10 @@ public class Principal {
 	
 	   private void correr() throws ClassNotFoundException, SQLException
        {
+		   while (true)
+		   {
 	
-	       OperacionesSQL mSQL = new OperacionesSQL( "localhost","makita", "root","1234");
+	       OperacionesSQL mSQL = new OperacionesSQL( "localhost","makita", "root","");
            mSQL.AbrirConexionBD();
 
            LeerConsola leerConsola= new LeerConsola();
@@ -25,21 +27,20 @@ public class Principal {
 
            switch(opcion)
            {
-               case 1:
+               case 1: 
                    try{
-                       TipoMueble tipoMueble = new TipoMueble();
-                       tipoMueble.mostrar();
+                	   
+                       TipoMueble tipoMueble = new TipoMueble(mSQL);
                    }
                    catch(Exception e)
                    {
-                       System.out.println ("Se produció un error, no existen datos registrados");
+                       System.out.println ("Sucedió un error, no existen datos registrados");
                    }
                    break;
                case 2:
                     try
                    {
-                       Mueble mueble= new Mueble();
-                        mueble.mostrar();
+                       Mueble mueble= new Mueble(mSQL);
                    }
                    catch (Exception e)
                    {
@@ -49,8 +50,7 @@ public class Principal {
                case 3:
                      try
                    {
-                       Proveedor proveedor= new Proveedor();
-                         proveedor.mostrar();
+                       Proveedor proveedor= new Proveedor(mSQL);
                    }
                    catch (Exception e)
                    {
@@ -60,8 +60,7 @@ public class Principal {
                case 4:
                      try
                    {
-                      Empleado empleado= new Empleado();
-                         empleado.mostrar();
+                      Empleado empleado= new Empleado(mSQL);
                    }
                    catch (Exception e)
                    {
@@ -71,8 +70,7 @@ public class Principal {
                case 5:
                      try
                    {
-                       Cliente cliente= new Cliente();
-                       cliente.mostrar();
+                       Cliente cliente= new Cliente(mSQL);
                    }
                    catch (Exception e)
                    {
@@ -130,19 +128,35 @@ public class Principal {
                case 10:
                       try
                    {
-                       Compra compra= new Compra();
-                       DetalleCompra detalleCompra= new DetalleCompra();
-                       compra.leerDatos();
+                          Compra compra= new Compra();
+                          compra.leerDatos();
                           compra.insertar(mSQL);
+                          DetalleCompra detalleCompra= new DetalleCompra();
                           detalleCompra.leerDatos();
                           detalleCompra.insertar(mSQL);
+                        	  
                    }
                    catch (Exception e)
                    {
                        System.out.println ("Se produció un error, al registrar la compra!");
                    }
                    break;
+                   
                case 11:
+            	    try
+                    {
+                           
+                           DetalleCompra detalleCompra= new DetalleCompra();
+                           detalleCompra.leerDatos();
+                           detalleCompra.insertar(mSQL);
+                         	  
+                    }
+                    catch (Exception e)
+                    {
+                        System.out.println ("Se produció un error, al registrar la compra!");
+                    }
+            	   break;
+               case 12:
                       try
                    {
                        Venta venta= new Venta();
@@ -157,26 +171,36 @@ public class Principal {
                        System.out.println ("Se produció un error, al registrar venta!");
                    }
                    break;
-               case 12:
+                
+               case 13:
+            	    try
+                    {
+                           DetalleVenta detalleVenta= new DetalleVenta();
+                           detalleVenta.leerDatos();
+                           detalleVenta.insertar(mSQL);
+                    }
+                    catch (Exception e)
+                    {
+                        System.out.println ("Se produció un error, al registrar venta!");
+                    }
+            	   break;
+               
+               case 15:
                        try
                    {
-                       Venta venta= new Venta();
-                          DetalleVenta detalleVenta= new DetalleVenta();
-                          venta.mostrar();
-                          detalleVenta.mostrar();
+                       Venta venta= new Venta(mSQL);
+                          DetalleVenta detalleVenta= new DetalleVenta(mSQL);
                    }
                    catch (Exception e)
                    {
                        System.out.println ("Se produció un error, al mostrar las ventas!");
                    }
                    break;
-               case 13:
+               case 14:
                         try
                    {
-                       Compra compra= new Compra();
-                       DetalleCompra detalleCompra= new DetalleCompra();
-                       compra.mostrar();
-                          detalleCompra.mostrar();
+                       Compra compra= new Compra(mSQL);
+                       DetalleCompra detalleCompra= new DetalleCompra(mSQL);
                    }
                    catch (Exception e)
                    {
@@ -184,9 +208,9 @@ public class Principal {
                    }
                    break;
            }
-	
+		   }
        }
-
+	 
        private void MostrarOpciones()
        {
            System.out.println ("Ingrese su opción:");
@@ -200,9 +224,11 @@ public class Principal {
            System.out.println ("\t8.Registrar Mueble " );
            System.out.println ("\t9.Registrar Cliente " );
            System.out.println ("\t10.Registrar Compra " );
-           System.out.println ("\t11.Registrar Venta " );
-           System.out.println ("\t12.Mostrar Compra " );
-           System.out.println ("\t13.Mostrar Venta " );
+           System.out.println ("\t11.Registrar Items de la Compra " );
+           System.out.println ("\t12.Registrar Venta " );
+           System.out.println ("\t13.Registrar Items de la Venta " );
+           System.out.println ("\t14.Mostrar Compra " );
+           System.out.println ("\t15.Mostrar Venta " );
        }
 
 

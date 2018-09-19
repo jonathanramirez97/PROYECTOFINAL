@@ -30,7 +30,7 @@ public class Empleado {
      this.Celular=Celular;
  }
 
-	public Empleado(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+	public Empleado( OperacionesSQL operacionesSQL) throws SQLException
 	{
 		leerConsola = new LeerConsola();
 
@@ -38,20 +38,21 @@ public class Empleado {
 
 		String query = "SELECT *  ";
 		query +=       "FROM   Empleados ";
-		query +=       "WHERE  IdEmpleado = " + codigo;
 
 		ResultSet rs = operacionesSQL.selectSQL(query);
-
-		if (rs.next())
+		try
+		{
+		while (rs.next())
 		{
 			this.IdEmpleado = rs.getInt(1);
 			this.Nombre = rs.getString(2);
 			this.Apellido = rs.getString(3);
 			this.Direccion = rs.getString(4);
          this.Celular=rs.getString(5);
-			
+			mostrar();
 		}
-		else
+		}
+		catch(Exception e)
 		{
 			this.IdEmpleado = 0;
 			this.Nombre="";

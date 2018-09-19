@@ -37,7 +37,7 @@ public Mueble(int IdMueble, String NombreMueble, String AltoMueble, String Ancho
     this.TipoMueble=TipoMueble;
 }
 
-public Mueble(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+public Mueble( OperacionesSQL operacionesSQL) throws SQLException
 {
 	leerConsola = new LeerConsola();
 
@@ -45,11 +45,12 @@ public Mueble(int codigo, OperacionesSQL operacionesSQL) throws SQLException
 
 	String query = "SELECT *  ";
 	query +=       "FROM   Muebles ";
-	query +=       "WHERE  IdMueble = " + codigo;
 
 	ResultSet rs = operacionesSQL.selectSQL(query);
 
-	if (rs.next())
+	try
+	{
+	while (rs.next())
 	{
 		this.IdMueble = rs.getInt(1);
 		this.NombreMueble = rs.getString(2);
@@ -58,8 +59,10 @@ public Mueble(int codigo, OperacionesSQL operacionesSQL) throws SQLException
 		this.ProfundidadMueble = rs.getString(5);
 		this.ColorMueble = rs.getString(6);
 		this.TipoMueble = rs.getInt(7);
+		mostrar();
 	}
-	else
+	}
+	catch (Exception e)
 	{
 		this.IdMueble = 0;
 		this.NombreMueble = "";

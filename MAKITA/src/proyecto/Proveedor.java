@@ -27,7 +27,7 @@ public Proveedor(int IdProveedor, String Nombre, String Telefono, String Direcci
     this.Direccion=Direccion;
 }
 
-public Proveedor(int codigo, OperacionesSQL operacionesSQL) throws SQLException
+public Proveedor( OperacionesSQL operacionesSQL) throws SQLException
 {
 	leerConsola = new LeerConsola();
 
@@ -35,19 +35,20 @@ public Proveedor(int codigo, OperacionesSQL operacionesSQL) throws SQLException
 
 	String query = "SELECT *  ";
 	query +=       "FROM   Proveedores ";
-	query +=       "WHERE  IdProveedor = " + codigo;
 
 	ResultSet rs = operacionesSQL.selectSQL(query);
-
-	if (rs.next())
+	try
+	{
+	while (rs.next())
 	{
 		this.IdProveedor = rs.getInt(1);
 		this.Nombre = rs.getString(2);
 		this.Telefono = rs.getString(3);
 		this.Direccion = rs.getString(4);
-		
+		mostrar();
 	}
-	else
+	}
+	catch(Exception e)
 	{
 		this.IdProveedor = 0;
 		this.Nombre="";
